@@ -78,3 +78,98 @@ Termd: Indica si el empleado fue terminado (1) o no (0)
 
 - Pasar de float a int 
 
+DateofHire: Fecha de contratación
+
+- 182 nulos 
+
+- convertir en objetos "datetime"
+
+- 322 duplicados
+
+DateofTermination: Fecha de terminación del empleado
+
+
+- 308 nulos 
+
+- convertir en objetos "datetime"
+
+- 315 duplicados
+
+TermReason: Razón de la terminación del empleado
+
+- 159 nulos 
+
+- 390 duplicados
+
+- esta columna está relacionada con la columna Termd = 1 (este número indica que fue terminado)
+
+EmploymentStatus: Estado del empleo del empleado
+
+- 99 nulos 
+
+- hacer coincidir que si EmploymentStatus si es "terminated" tenga una fecha en DateofTermination y si es posible,
+la razón por la que terminó el contrato en TermReason
+
+Department: Departamento al que pertenece el empleado
+
+Production              
+IT/IS                    
+Sales                    
+Software Engineering      
+Admin Offices             
+Executive Office 
+
+- hay seis departamentos
+
+- 225 nulos
+
+ManagerName: Nombre completo del gerente del empleado
+
+- 190 nulos 
+
+- 388 duplicados
+
+- separar los nombres de los apellidos. Lo tengo hecho en un df. Tengo lo fórmula en mis ejercicios y quitar 
+Board od Directors
+
+ManagerID: Identificador único del empleado
+
+- 107 nulos 
+
+- 386 duplicados
+
+- Esta columna puede ser válida igual podríamos quitar la columna de ManagerName
+
+
+RecruitmentSource: Fuente de Reclutamiento del empleado
+
+Indeed                     
+LinkedIn                   
+Google Search              
+Diversity Job Fair         
+Employee Referral         
+CareerBuilder              
+Website                    
+Other  
+
+- hay ocho fuentes distintas de reclutamiento
+
+- 144 nulos 
+
+- 400 duplicados
+
+PerformanceScore: Puntuación de rendimiento del empleado 
+
+Fully Meets          
+Exceeds               
+Needs Improvement     
+PIP  
+
+- hay cuatro categorías. Cumple las expectativas, supera o excede las expectativas, necesita mejorar
+y PIP (Performance Improvement Plan) o Plan de Mejora del Desempeño.
+
+- 144 nulos 
+
+- 400 duplicados
+
+
