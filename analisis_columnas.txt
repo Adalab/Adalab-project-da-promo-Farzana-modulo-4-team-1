@@ -1,0 +1,80 @@
+Employee_Name: 
+
+- 246 nulos
+
+- separar nombres de apellidos
+
+EmpID: 
+
+- 99 nulos, 
+
+- cambiar de float a int.
+
+- Desde el 350 hasta el 409 son todos nulos. Solo hay informacion en la columna "date"
+
+MarriedID: Indica si el empleado está casado (1) o no (0). 
+
+- Tien 153 nulos. 
+- Se pueden completar los nulos con la columna de Marital Satus ID o eliminar la columna ya que tenemos otra columna con esa información.
+- Pasar de float a int 
+
+- MaritalStatusID: Identificador que representa el estado civil del empleado (por ejemplo, 0 - Soltero, 1 - Casado, 2 - Divorciado, etc.). 
+
+- 99 nulos 
+-Cambiar de float a int 
+
+-GenderID: Identificador del género del empleado (por ejemplo, 0 - Femenino, 1 - Masculino).
+
+- 99 nulos 
+- Relacionar esta columna con la columna "Sex" y ver si con GenderID completamos la columna de Sex o si eliminamos sex.
+
+EmpStatusID: Identificador del estado del empleado (por ejemplo, 1 - Activo, 5 - Voluntariamente Terminado, etc.)                  
+
+- 99 nulos. 
+
+- Mirar si los 99 nulos corresponden a los nulos a prtir del 350 y en realidad tenemos 311 datos reales
+
+- Cambiar de float a int 
+
+- 1,2 ,3 = Active, 5 - Voluntariamente Terminado, 4 - Terminated for Cause. Homogeneizar columnas
+
+- cambiar voluntariamente terminado a ingles 
+
+DeptID: Identificador del departamento al que pertenece el empleado de 1 al 6
+
+- 99 nulos
+
+- cambiar de float a int 
+
+- La columna Department se puede completar con la columna Dept ID
+
+PerfScoreID: Identificador del rendimiento del empleado (por ejemplo, 3 - Cumple completamente, 4 - Supera las expectativas, etc.).
+
+- 128 nulos
+
+- Se realciona con la columna PerformanceScore
+
+- 1 = PIP (Plan de mejora de desempeño), 2= Needs Improvement,3 = Fully Meets, 4 = Exceeds
+
+- Pasar de floats a int 
+
+FromDiversityJobFairID: Indica si el empleado fue reclutado a través de una feria de empleo enfocada en la diversidad (1) o no (0).
+
+- 254 nulos
+
+- Pasar de float a int 
+
+- Esta columna se puede completar con la columna Recruitmentsource
+
+Salary: Salario del empleado. 
+
+- 99 nulos
+
+- pasar de object a float 
+
+Termd: Indica si el empleado fue terminado (1) o no (0)                 
+
+- 99 nulos
+
+- Pasar de float a int 
+

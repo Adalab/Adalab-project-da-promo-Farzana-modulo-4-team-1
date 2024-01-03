@@ -23,7 +23,7 @@ columnas_eliminar = ['MarriedID','Sex']
 # 5= Voluntarily Terminated
 #TermR: 1. No estan y 0. Estan 
 #EmploymentStatus: Active, Terminated for Cause,Voluntarily Terminated	
-#TermReason: 
+#TermReason: Cambiar a N/A-StillEmployed si el termd es 0 y EmploymentStatus = Active
 #%%
 df[['Sex', 'GenderID','Employee_Name'	]].head(20)
 # %%
