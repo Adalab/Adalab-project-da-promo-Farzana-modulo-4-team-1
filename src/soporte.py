@@ -1,5 +1,6 @@
 #%%
 import pandas as pd
+import datetime
 pd.set_option('display.max_columns', None)
 
 # %%
@@ -26,26 +27,7 @@ df.drop(columnas_eliminar, axis=1, inplace=True)
 #TermReason: Cambiar a N/A-StillEmployed si el termd es 0 y EmploymentStatus = Active
 
 # %%
-df = df.drop(df.index[311:409])
-
-#%%
-df[['Sex', 'GenderID','Employee_Name'	]].head(20)
-# %%
-df['EmploymentStatus'].value_counts()
-#%%
-df[['EmploymentStatus', 'EmpStatusID', 'Employee_Name']].sample(10)
-# %%
-df['EmpStatusID'].value_counts()
-#%%
-df[df['Employee_Name'] =='Goyal, Roxana']
-
-# %%
-df['TermReason'].value_counts()
-#%%
-df[['TermReason','EmploymentStatus','Termd', 'EmpStatusID']].sample(20)
-# %%
-#Data frame correspondiente para cambiar TermReason a Still Employed
-df[df['Termd'] == 0.0][df['TermReason']!= 'N/A-StillEmployed']
+df = df.drop(df.index[311:410])
 #%%
 mapa = {2.0 : 1.0}
 df['EmpStatusID'] = df['EmpStatusID'].replace(mapa)
@@ -61,7 +43,17 @@ df['EmpStatusID'] = df['EmpStatusID'].replace(mapa_4)
 
 # %%
 # BOD - fecha
+df['DateofHire'] = pd.to_datetime(df['DateofHire'], format='%m/%d/%Y')
+#%%
+df['DateofTermination'] =pd.to_datetime(df['DateofTermination'],format='%m/%d/%Y' )
 
-df[['DateofHire', 'DateofTermination']] = pd.to_datetime(df[['DateofHire', 'DateofTermination']], format='%m/%d/%Y')
+# %%
+df['DOB']=pd.to_datetime(pd.to_datetime(df['DOB'],format='%m/%d/%y' ))
 
-fecha_datetime = datetime.strptime(fecha_string, '%m/%d/%Y')
+#%%
+#Agregamos la columna de Edad
+df['Age'] = 2023 - df['DOB'].dt.year
+# %%
+#Codigo para calcular la fecha correcta en DOB
+df['DOB'] = df['DOB'].apply(lambda x: x.replace (year=x.year - 100) if x.year > 2000 else x)
+# %%
