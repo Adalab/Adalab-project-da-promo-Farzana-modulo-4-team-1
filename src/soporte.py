@@ -126,3 +126,39 @@ print('Reordenamos las columnas')
 #TermReason: Cambiar a N/A-StillEmployed si el termd es 0 y EmploymentStatus = Active
 
 # %%
+# Crear un DataFrame de ejemplo
+ManagerNombre = {'ManagerName': ['Webster Butler', 'Elijiah Gray', 'Ketsia Liebig ', 'Brannon Miller', 'Michael Albert', 'Simon Roup', 'David Stanley', 'Amy Dunn', 'Kissy Sullivan','Janet King', 'Kelley Spirea','John Smith', 'Peter Monroe', 'Lynn Daneault', 'Alex Sweetwater','Jennifer Zamora','Brian Champaigne', 'Brandon R. LeBlanc', 'Eric Dougall', 'Debra Houlihan' ] }
+df_manager = pd.DataFrame(ManagerNombre)
+
+# Separar nombres y apellidos en la columna 'ManagerName'
+df_manager[['ManagerFirstName', 'ManagerLastName']] = df_manager['ManagerName'].str.split(expand=True, n=1)
+
+# Mostrar el resultado
+print(df_manager)
+
+#En este nuevo no incluí Board of Directors porque no es un nombre con su correspondiente apellido.
+# %%
+df = pd.concat([df, df_manager], axis=1)
+# %%
+df.drop('ManagerName',  axis=1, inplace=True)
+print('Eliminamos la columna Manager Name')
+#%%
+map = {'Terminated':'N/A-StillEmployed'}
+df['TermReason'] = df['TermReason'].replace(map)
+print('Cambiamos la categoria Terminated por N/A-StillEmployed')
+# %%
+
+#Gestion de Nuloss
+#%%
+# lo convertimos a DataFrame
+df_nulos = pd.DataFrame((df.isnull().sum() / df.shape[0]) * 100, columns = ["%_nulos"])
+# filtramos el DataFrame para quedarnos solo con aquellas columnas que tengan nulos
+df_nulos[df_nulos["%_nulos"] > 0]
+# %%
+#Nombre y apellido del Manager se puede completar con el manager Id
+#Eliminamos la columna FromDiversityJobFairID ya que la info esta en RecruitmentSource
+
+#Last Name y First Name categoria Unknown
+#Borramos la columna de PerfScoreID ya que esa informacion la tenemos en PerformanceScore 
+
+#CitizenDesc y RaceDesc categoria Uknown∫
